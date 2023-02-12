@@ -1,0 +1,6 @@
+{
+    "PREFIX": "?",
+    "TOKEN": "YourToken",
+    "CHANNEL_ID": 123456,
+    "DATABASE_NAME": "invites.db"
+}
