@@ -120,13 +120,14 @@ async def on_raw_member_remove(payload):
     )
     channel = await bot.fetch_channel(config["CHANNEL_ID"])
     embed = discord.Embed(title=f"**{payload.user} left!**", color=discord.Color.red())
-    embed.set_thumbnail(url=payload.user.avatar)
     left_guild = await bot.fetch_guild(payload.guild_id, with_counts=True)
     embed.add_field(
         name="",
         value=f"**{payload.user}** ({payload.user.id}) left the server!\n\nWe now have **{left_guild.approximate_member_count}** members in the server.",
     )
-    embed.set_footer(text=f"Today at {now}")
+    embed.set_footer(
+        icon=payload.user.avatar.url, text=f"{payload.user} • Today at {now}"
+    )
     await channel.send(embed=embed)
 
 
